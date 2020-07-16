@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+<head>
+    <title>MAIN</title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="main_style.css">
+    <script src="js/jquery.js"> </script>
+    <script src="js/jquery-migrate-1.4.1.min.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+ 
+        var $panel = $(".rolling_panel").find("ul");
+        var itemWidth = $panel.children().outerWidth(); // 가로 길이
+        var itemLength = $panel.children().length;      //  수
+        var rollingId;
+        auto();
+
+        function auto() {
+            rollingId = setInterval(function() {
+            start(); }, 4000);
+        }
+
+        function start() {
+            $panel.css("width", itemWidth * itemLength);
+            $panel.animate({"left": - itemWidth + "px"}, function() {
+            // 첫번째꺼 마지막에
+            $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
+            // 첫번째 삭제
+            $(this).find("li:first").remove();
+            $(this).css("left", 0);
+            });
+        }
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header"></div>
+        <div class="container">
+            <div class = "main_logo">
+                <a href="main.html"><img class="donga_logo" src="img\donga_logo2.jpg"></a>
+                <ul class="logout_btn"> 
+                    <a href="#"><li>로그아웃</li></a>
+                </ul>
+            </div>
+            <div class="rolling_panel">
+                <ul class="rolling">
+                    <li><img class="main_image" src="img\donga_1.jpg" ></a></li>
+                    <li><img class="main_image" src="img\donga_2.jpg" ></a></li>
+                    <li><img class="main_image" src="img\donga_3.jpg" ></a></li>
+                    <li><img class="main_image" src="img\donga_4.jpg" ></a></li>
+                    <li><img class="main_image" src="img\donga_5.jpg" ></a></li>
+                </ul>
+            </div>
+            <div class="box_all">
+                <div class="notice_box">
+                    <div class="notice_font_all">
+                        <div class="notice_title">공지사항</div>
+                        <div class="notice_title2">새로운 소식을 확인해주세요!</div>
+                        <div class="more">+ more</div>
+                        <table class="notice_table"> <!-- 날짜 빠른순으로 상위 3개-->
+                            <tr>
+                            <td class="table-align"><a class="table_aTag" href="#" >게시판 제목 테스트1</a></td>
+                                <td>2020-06-03</td>
+                            </tr>
+                            <tr>
+                                <td class="table-align"><a class="table_aTag" href="#" >게시판 제목 테스트2</a></td>
+                                <td>2020-06-03</td>
+                            </tr>
+                            <tr>
+                                <td class="table-align"><a class="table_aTag" href="#" >게시판 제목 테스트3</a></td>
+                                <td>2020-06-03</td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                </div>
+                <div class="list_schedule">
+                    <a href="subject.jsp"><img class="class_list_img" src="img\subject_kind.jpg"></a>
+                    <a href="schedule.jsp"><img class="schedule_img" src="img\timetable.jpg"></a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <table>
+                    <tr>
+                        <td class="footer_main">승학캠퍼스(대학본부)</td>
+                        <td class="footer_sub">49315. 부산광역시 사하구 낙동대로 550번길 37(하단동)</td>
+                        <td class="footer_main">대표전화 : 051-200-6114</td>
+                    </tr>
+                    <tr>
+                        <td class="footer_main">구덕캠퍼스</td>
+                        <td class="footer_sub">49201. 부산광역시 서구 대신공원로 32(동대신동 3가)</td>
+                    </tr>
+                    <tr>
+                        <td class="footer_main">부민캠퍼스</td>
+                        <td class="footer_sub">49236. 부산광역시 서구 구덕로 225(부민동 2가)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td class="acc">캠퍼스 재난 · 사고 신고 : 051-200-8119</td><td class="copyright">COPYRIGHT(C) 2020 DONG-A UNIVERSITY ALLRIGHTS RESERVED.</td>
+                    </tr>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
